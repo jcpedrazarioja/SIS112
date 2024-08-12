@@ -46,5 +46,4 @@ class Program
             Console.WriteLine("Your calculated age is: " + (2024 - yearBorn));
         }
     }    
-
 }
