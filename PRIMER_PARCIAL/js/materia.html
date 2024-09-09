@@ -26,6 +26,11 @@
                 <p class="card-text" id="carrera"></p>
                 <p class="card-text" id="universidad"></p>
                 <p class="card-text" id="cantidadinscritos"></p>
+                <p class="card-text" id="modalidad"></p>
+                <p class="card-text" id="calificacion"></p>
+                <p class="card-text" id="temas"></p>
+                <p class="card-text" id="ubicacion"></p>
+
 
                 <h2>Materias</h2>
                 <button class="btn btn-primary" onclick="botonMateria1()">Materia 1</button>
@@ -36,20 +41,20 @@
                 <button class="btn btn-primary" onclick="botonMateria6()">Materia 6</button>
             
                 <h6>Modificar Nombre </h6>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria1()">Modificar Nombre Materia 1</button>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria2()">Modificar Nombre Materia 2</button>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria3()">Modificar Nombre Materia 3</button>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria4()">Modificar Nombre Materia 4</button>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria5()">Modificar Nombre Materia 5</button>
-                <button class="btn btn-primary" onclick="botonModificarNombreMateria6()">Modificar Nombre Materia 6</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria1()">Modificar Nombre Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria2()">Modificar Nombre Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria3()">Modificar Nombre Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria4()">Modificar Nombre Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria5()">Modificar Nombre Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarNombreMateria6()">Modificar Nombre Materia 6</button>
 
                 <h6>Modificar Sigla </h6>
-                <button class="btn btn-primary" onclick="botonModificarSigla1()">Modificar Siglas Materia 1</button>
-                <button class="btn btn-primary" onclick="botonModificarSigla2()">Modificar Siglas Materia 2</button>
-                <button class="btn btn-primary" onclick="botonModificarSigla3()">Modificar Siglas Materia 3</button>
-                <button class="btn btn-primary" onclick="botonModificarSigla4()">Modificar Siglas Materia 4</button>
-                <button class="btn btn-primary" onclick="botonModificarSigla5()">Modificar Siglas Materia 5</button>
-                <button class="btn btn-primary" onclick="botonModificarSigla6()">Modificar Siglas Materia 6</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla1()">Modificar Siglas Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla2()">Modificar Siglas Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla3()">Modificar Siglas Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla4()">Modificar Siglas Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla5()">Modificar Siglas Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarSigla6()">Modificar Siglas Materia 6</button>
 
                 <h6>Modificar Docente </h6>
                 <button class="btn btn-secondary" onclick="botonModificarDocente1()">Modificar Docente Materia 1</button>
@@ -107,9 +112,42 @@
                 <button class="btn btn-secondary" onclick="botonModificarCantidadInscritos5()">Modificar Cantidad de Inscritos Materia 5</button>
                 <button class="btn btn-secondary" onclick="botonModificarCantidadInscritos6()">Modificar Cantidad de Inscritos Materia 6</button>
 
+                <h6>Modificar Modalidad</h6>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad1()">Modificar Modalidad Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad2()">Modificar Modalidad Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad3()">Modificar Modalidad Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad4()">Modificar Modalidad Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad5()">Modificar Modalidad Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarModalidad6()">Modificar Modalidad Materia 6</button>
+
+                <h6>Modificar Califiacion De Aprobacion</h6>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion1()">Modificar Calificacion Minima de Aprobacion Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion2()">Modificar Calificacion Minima de Aprobacion Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion3()">Modificar Calificacion Minima de Aprobacion Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion4()">Modificar Calificacion Minima de Aprobacion Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion5()">Modificar Calificacion Minima de Aprobacion Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarCalifiacion6()">Modificar Calificacion Minima de Aprobacion Materia 6</button>
+
+                <h6>Modificar Temas</h6>
+                <button class="btn btn-secondary" onclick="botonModificarTemas1()">Modificar Temas Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarTemas2()">Modificar Temas Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarTemas3()">Modificar Temas Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarTemas4()">Modificar Temas Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarTemas5()">Modificar Temas Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarTemas6()">Modificar Temas Materia 6</button>
+
+                <h6>Modificar Ubicacion</h6>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion1()">Modificar Ubicacion Materia 1</button>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion2()">Modificar Ubicacion Materia 2</button>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion3()">Modificar Ubicacion Materia 3</button>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion4()">Modificar Ubicacion Materia 4</button>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion5()">Modificar Ubicacion Materia 5</button>
+                <button class="btn btn-secondary" onclick="botonModificarUbicacion6()">Modificar Ubicacion Materia 6</button>
+
+
                 <h6>Eliminar</h6>
-                <button class="btn btn-primary" onclick="botonEliminarNombreMateria()">Eliminar Nombre</button>
-                <button class="btn btn-primary" onclick="botonEliminarSiglas()">Eliminar Siglas</button>
+                <button class="btn btn-secondary" onclick="botonEliminarNombreMateria()">Eliminar Nombre</button>
+                <button class="btn btn-secondary" onclick="botonEliminarSiglas()">Eliminar Siglas</button>
                 <button class="btn btn-secondary" onclick="botonEliminarDocente()">Eliminar Docente</button>
                 <button class="btn btn-secondary" onclick="botonEliminarHorario()">Eliminar Horario</button>
                 <button class="btn btn-secondary" onclick="botonEliminararAula()">Eliminar Aula</button>
@@ -117,6 +155,11 @@
                 <button class="btn btn-secondary" onclick="botonEliminarCarrera()">Eliminar Carrera</button>
                 <button class="btn btn-secondary" onclick="botonEliminarUniversidad()">Eliminar Universidad</button>
                 <button class="btn btn-secondary" onclick="botonEliminarCantidadInscritos()">Eliminar Cantidad de Inscritos</button>
+                <button class="btn btn-secondary" onclick="botonEliminarModalidad()">Eliminar Modalidad</button>
+                <button class="btn btn-secondary" onclick="botonEliminarCalificacion()">Eliminar Calificacion Minima de Aprobacion</button>
+                <button class="btn btn-secondary" onclick="botonEliminarTemas()">Eliminar Temas</button>
+                <button class="btn btn-secondary" onclick="botonEliminarUbicacion()">Eliminar Ubicacion</button>
+                
                
             </div>
         </div>
