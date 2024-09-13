@@ -33,19 +33,11 @@ class Entero {
     }
 
     esParImpar(){
-        if (this.Num %2 ==0) {
-            return true;
-        }else{
-            return false;
-        }
+        return (this.Num % 2 == 0)
     }
 
     esPositivoNegativo(){
-        if (this.Num > 0){
-            return true;
-        }else{
-            return false;
-        }
+        return (this.Num >= 0)
     }
 }
 
