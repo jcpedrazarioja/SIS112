@@ -18,10 +18,16 @@ class Entero {
         return this.Num;
     }
 
-    //Obtener el valor de Numn y mostrarlo
-    showResultado() {
+    //CLASS - Mostrar el valor de Num
+    showNum() {
         const resultadoDiv = document.getElementById('resultado');
         resultadoDiv.textContent = this.getNum();
+    }
+
+    //Obtener el valor de Numn y mostrarlo
+    showResultado(respuesta) {
+        const resultadoDiv = document.getElementById('resultado');
+        resultadoDiv.textContent = respuesta;
     }
 
     incrementarNum(){
@@ -33,12 +39,43 @@ class Entero {
     }
 
     esParImpar(){
-        return (this.Num % 2 == 0)
+        if(this.Num % 2 ==0){
+            return true;
+        } else{
+            return false;
+        }
     }
 
-    esPositivoNegativo(){
-        return (this.Num >= 0)
+    esNegativoPositivo(){
+        if (this.Num >= 0){
+            return true;
+        } else{
+            return false;
+        }
     }
+
+    factorial(){
+        if(this.Num < 0) {
+            return "No existe factorial de numeros negativos";
+        }
+        let resultado = 1
+        for (let i = 1; i <= this.Num; i++) {
+            resultado *= i;
+        }
+        return resultado;
+    }
+
+    // VERIFICAR SI ES PERFECTO
+    esPerfecto(){
+        let sumaDivisores = 0;
+        for (let i = 1; i < this.Num; i++) {
+            if (this.Num % i === 0) {
+                sumaDivisores += i;
+            }
+        }
+        return sumaDivisores === this.Num
+    }
+
 }
 
 //Las funciones = button HTML
@@ -50,17 +87,17 @@ function cargarNum() {
 }
 
 function mostrarNum() {
-    ClaseEntero.showResultado();
+    ClaseEntero.showNum();
 }
 //Incrementar el valor de Num
 function IncrementarValor(){
     ClaseEntero.incrementarNum();
-    ClaseEntero.showResultado();
+    ClaseEntero.showNum();
 }
 //Decrementar el valor de Num
 function DecrementarValor(){
     ClaseEntero.decrementarNum();
-    ClaseEntero.showResultado();
+    ClaseEntero.showNum();
 }
 //Verifica si es Par o Impar
 function esParImparNum(){
@@ -69,8 +106,18 @@ function esParImparNum(){
     ClaseEntero.showResultado(resp);
 }
 function esPositivoNegativoNum(){
-    var respuesta = ClaseEntero.esPositivoNegativo();
+    var respuesta = ClaseEntero.esNegativoPositivo();
     var resp = respuesta ? "Es Num Pos":"Es Num Neg"
     ClaseEntero.showResultado(resp);
 }
-
+//Mostrar el factorial
+function CalcularFactorial(){
+    var resultado = ClaseEntero.factorial();
+    ClaseEntero.showResultado("Factorial: " + resultado);
+}
+//Verifica numero perfecto
+function verificarPerfecto(){
+    var resultado = ClaseEntero.esPerfecto();
+    var resp = resultado ? "Es un numero perfecto " : "No es un numero perfecto";
+    ClaseEntero.showResultado(resp);
+}
