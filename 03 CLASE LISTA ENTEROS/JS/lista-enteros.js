@@ -5,21 +5,57 @@ class ListaEnteros {
 
     agregar(valor) {
         this.lista.push(valor);
-        this.mostrar();
     }
 
-    mostrar() {
-        const ul = document.getElementById('lista');
-        ul.innerHTML = ''; // Limpia la lista
-        this.lista.forEach(num => {
-            const li = document.createElement('li');
-            li.textContent = num;
-            ul.appendChild(li);
-        });
+    eliminar(valor) {
+        const index = this.lista.indexOf(valor);
+        if (index !== -1) {
+            this.lista.splice(index, 1);
+        }
+    }
+
+    buscar(valor) {
+        return this.lista.indexOf(valor);
+    }
+
+    ordenar() {
+        this.lista.sort((a, b) => a - b); // Orden ascendente
     }
 }
 
 let miLista = new ListaEnteros();
-miLista.agregar(5);
-miLista.agregar(2);
-console.log(miLista.lista);
+
+function actualizarResultado() {
+    document.getElementById('result').innerHTML = `Resultado: [ ${miLista.lista.join(', ')} ]`;
+}
+
+function agregar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
+    if (!isNaN(valor)) {
+        miLista.agregar(valor);
+        actualizarResultado();
+        document.getElementById('inputValor').value = ''; // Limpiar input
+    }
+}
+
+function eliminar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
+    if (!isNaN(valor)) {
+        miLista.eliminar(valor);
+        actualizarResultado();
+        document.getElementById('inputValor').value = ''; // Limpiar input
+    }
+}
+
+function buscar() {
+    const valor = parseInt(document.getElementById('inputValor').value);
+    if (!isNaN(valor)) {
+        const index = miLista.buscar(valor);
+        alert(index !== -1 ? `El número ${valor} está en la posición ${index}` : `${valor} no se encuentra en la lista.`);
+    }
+}
+
+function ordenar() {
+    miLista.ordenar();
+    actualizarResultado();
+}

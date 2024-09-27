@@ -1,318 +1,283 @@
 class Entero {
     //Atributos
-    Num;
+    Num; 
 
     //Constructor = inicializa el objeto
-    constructor(Numero){
-        this.Num = Numero;  
+    constructor(Numero) {
+        this.Num = Numero;
     }
 
-    //CLASS- Cargar el valor de Num
-    setNum(){
-        const input = document.getElementById('numeroInput')
-        this.Num = parseInt(input.value, 10)
+    // CLASS - Cargar el valor de Num
+    setNum() {
+        const input = document.getElementById('numeroInput');
+        this.Num = parseInt(input.value, 10);
     }
 
-
-    //CLASS- Obtener el valor del numero 
+    //CLASS - Obtener el valor de Num
     getNum() {
-        return this.Num;    
+        return this.Num
     }
 
-    //CLASS- Mostra el vaalor del numero
+    //Mostrar el valor de Num
     showNum() {
-        const resultadoDiv = document.getElementById('resultado')
-        resultadoDiv.textContent = this.getNum();
+        const resultado = document.getElementById('resultado');
+        resultado.textContent = this.getNum();
     }
 
     showResultado(respuesta) {
-        const resultadoDiv = document.getElementById('resultado')
-        resultadoDiv.textContent = respuesta;
+        const resultado = document.getElementById('resultado');
+        resultado.textContent = respuesta;
     }
-
-    incrementarNum(){
+    
+    incrementarNum() {
         this.Num = this.Num + 1;
     }
 
-    decrementarNum(){
-        this.Num = this.Num - 1;
+    decrementarNum() {
+        this.Num = this.Num-1;
     }
- 
-    // Estos dos son lo mismo solo que resumido
-    // esParImpar(){
-    //     if (this.Num % 2 !== 0){
-    //         return true;
-    //     }else{
-    //         return false
-    //     }
-    // }
-    esParImpar(){
+
+    esParImpar() {
         return (this.Num % 2 == 0)
     }
 
-    esPosiNega(){
+    esPositivoNegativo() {
         return (this.Num >= 0)
     }
 
-    factorial(){
-        if (this.Num < 0) return "No hay factorial de numero negativos";
-        let factorial = 1, i = this.Num;
-        while (i > 1) factorial *= i--;
-        return factorial;
-    }
-
-    esPerfecto(){
-        let suma = 0;  // Inicializamos una variable para almacenar la suma de divisores
-
-        // Recorremos desde 1 hasta Num-1 para encontrar los divisores
-        for (let i = 1; i < this.Num; i++) {
-            if (this.Num % i === 0) {  // Si i es divisor de Num
-                suma += i;  // Añadimos i a la suma
-            }
-        } 
-        // Comprobamos si la suma de los divisores es igual al número
-        return suma === this.Num;
-    }
-
-    esPrimo(){
-        if (this.Num <= 1) return false;
-        for (let i = 2; i <= Math.sqrt(this.Num); i++) {
-            if (this.Num % i === 0) return false;
+    // Calcular el factorial de Num
+    factorial() {
+        if (this.Num < 0) return "Factorial no está definido para números negativos";
+        let fact = 1;
+        for (let i = 1; i <= this.Num; i++) {
+            fact *= i;
         }
-        return true;
+        return `El factorial de ${this.Num} es ${fact}`;
     }
 
-    Fibonucci(){
-        if (this.Num <= 0) return "No hay sucesión de Fibonacci para números menores o iguales a 0";
-        
-        let fibo = [0, 1];
-        while (fibo[fibo.length - 1] + fibo[fibo.length - 2] <= this.Num) {
-            fibo.push(fibo[fibo.length - 1] + fibo[fibo.length - 2]);
-        }
-        
-        return fibo;
-    }
+    // Verifica si Num es un número perfecto
+    esPerfecto() {
+        if (this.Num <= 0) return `${this.Num} no es un número perfecto`;
 
-    esArmstrong() {
-        let numStr = this.Num.toString();  // Convertimos el número a cadena
-        let numLength = numStr.length;  // Obtenemos el número de dígitos
-        let suma = 0;
-        // Sumamos los cubos de los dígitos
-        for (let i = 0; i < numLength; i++) {
-            suma += Math.pow(parseInt(numStr[i]), 3);
-        }
-        // Comparamos si la suma de los cubos es igual al número original
-        return suma === this.Num;
-    }
-
-    esPerfectoGeneralizado(k) {
-        let suma = 0;
-        // Recorremos los divisores propios del número
+        let sumaDivisores = 0;
         for (let i = 1; i < this.Num; i++) {
             if (this.Num % i === 0) {
-                // Sumamos la k-ésima potencia de los divisores propios
-                suma += Math.pow(i, k);
+                sumaDivisores += i;
             }
         }
-        // Comparamos la suma con la k-ésima potencia del número original
-        return suma === Math.pow(this.Num, k);
+
+        return sumaDivisores === this.Num ? `${this.Num} es un número perfecto`
+             : `${this.Num} no es un número perfecto`;
+    }
+        
+    // Número de Armstrong
+    esArmstrong() {
+        let sumaCubos = 0;
+        let numStr = this.Num.toString();
+        for (let i = 0; i < numStr.length; i++) {
+            sumaCubos += Math.pow(parseInt(numStr[i]), 3);
+        }
+        return sumaCubos === this.Num ? `${this.Num} es un número de Armstrong` : `${this.Num} no es un número de Armstrong`;
     }
 
+    // Números Perfectos Generalizados
+    esPerfectoGeneralizado(k) {
+        if (this.Num <= 0) return `${this.Num} no es un número perfecto generalizado`;
+
+        let sumaPotencias = 0;
+        for (let i = 1; i < this.Num; i++) {
+            if (this.Num % i === 0) {
+                sumaPotencias += Math.pow(i, k);
+            }
+        }
+        return sumaPotencias === this.Num ? `${this.Num} es un número perfecto generalizado con k=${k}` : `${this.Num} no es un número perfecto generalizado con k=${k}`;
+    }
+
+    // Triángulo de Pascal
     calcularFilaPascal() {
-        let fila = [1]; // La primera posición siempre es 1
+        let fila = [1];
         for (let i = 1; i <= this.Num; i++) {
             fila[i] = fila[i - 1] * (this.Num - i + 1) / i;
         }
-        return fila;
+        return `La fila ${this.Num} del triángulo de Pascal es: [${fila.join(", ")}]`;
     }
 
+    // Cifrado César
     cifrarCesar(desplazamiento) {
-        let resultado = '';
-        for (let i = 0; i < this.Num.length; i++) {
-            let char = this.Num[i];
-            if (char.match(/[a-z]/i)) { // Verifica si el carácter es una letra
-                let codigo = char.charCodeAt(0);
-                // Manejo de mayúsculas
-                if (codigo >= 65 && codigo <= 90) {
-                    char = String.fromCharCode(((codigo - 65 + desplazamiento) % 26) + 65);
-                }
-                // Manejo de minúsculas
-                else if (codigo >= 97 && codigo <= 122) {
-                    char = String.fromCharCode(((codigo - 97 + desplazamiento) % 26) + 97);
-                }
+        let texto = this.Num.toString();
+        let cifrado = '';
+        for (let i = 0; i < texto.length; i++) {
+            let charCode = texto.charCodeAt(i);
+            if (charCode >= 48 && charCode <= 57) { // números 0-9
+                let nuevoCharCode = ((charCode - 48 + desplazamiento) % 10) + 48;
+                cifrado += String.fromCharCode(nuevoCharCode);
+            } else {
+                cifrado += texto[i]; // dejar cualquier otro caracter sin cifrar
             }
-            resultado += char; // Añade el carácter cifrado al resultado
         }
-        return resultado;
+        return `El número ${this.Num} cifrado con César es: ${cifrado}`;
     }
 
+    // Primos Gemelos
     tienePrimoGemelo() {
-        // Función auxiliar para verificar si un número es primo
-        const esPrimo = (num) => {
+        function esPrimo(num) {
             if (num <= 1) return false;
             for (let i = 2; i <= Math.sqrt(num); i++) {
                 if (num % i === 0) return false;
             }
             return true;
-        };
-        // Verificar si N tiene un primo gemelo
-        if (esPrimo(this.Num)) {
-            // Verificar si N-2 o N+2 también son primos
-            return esPrimo(this.Num - 2) || esPrimo(this.Num + 2);
         }
-        return false;
+
+        if (!esPrimo(this.Num)) return `${this.Num} no es un número primo`;
+
+        const gemelo1 = this.Num - 2;
+        const gemelo2 = this.Num + 2;
+        if (esPrimo(gemelo1)) return `${this.Num} tiene un primo gemelo: ${gemelo1}`;
+        if (esPrimo(gemelo2)) return `${this.Num} tiene un primo gemelo: ${gemelo2}`;
+        return `${this.Num} no tiene primos gemelos`;
     }
 
+    // Descomposición en Factores Primos
     descomponerEnFactoresPrimos() {
         let num = this.Num;
-        let factores = [];
-        // Encontrar el número de veces que 2 divide a num
-        let potencia = 0;
-        while (num % 2 === 0) {
-            num /= 2;
-            potencia++;
-        }
-        if (potencia > 0) factores.push([2, potencia]); // Añadir el factor 2 con su potencia
-        // Encontrar otros factores primos impares
-        for (let i = 3; i <= Math.sqrt(num); i += 2) {
-            potencia = 0;
+        let factores = {};
+        for (let i = 2; i <= num; i++) {
             while (num % i === 0) {
+                factores[i] = (factores[i] || 0) + 1;
                 num /= i;
-                potencia++;
             }
-            if (potencia > 0) factores.push([i, potencia]); // Añadir el factor primo con su potencia
         }
-        // Si num es mayor que 2, es un factor primo restante
-        if (num > 2) factores.push([num, 1]);
-    
-        return factores;
+        let resultado = Object.entries(factores).map(([factor, potencia]) => `${factor}^${potencia}`).join(" * ");
+        return `La descomposición en factores primos de ${this.Num} es: ${resultado}`;
     }
 
+    // Números de Catalan
     calcularCatalan() {
-        // Función auxiliar para calcular el factorial
-        const factorial = (num) => {
-            let resultado = 1;
-            for (let i = 1; i <= num; i++) {
-                resultado *= i;
-            }
-            return resultado;
-        };
-        // Fórmula de los números de Catalan: C(n) = (2n)! / ((n+1)! * n!)
-        let n = this.Num;
-        let catalan = factorial(2 * n) / (factorial(n + 1) * factorial(n));
-        
-        return catalan;
+        function factorial(n) {
+            let fact = 1;
+            for (let i = 1; i <= n; i++) fact *= i;
+            return fact;
+        }
+
+        let catalan = factorial(2 * this.Num) / (factorial(this.Num + 1) * factorial(this.Num));
+        return `El número de Catalan para ${this.Num} es: ${catalan}`;
     }
+
+    // Número de Mersenne
     esMersenne() {
-        let num = this.Num;
-        // Comprobamos si num + 1 es una potencia de 2
-        let p = Math.log2(num + 1); 
-        if (p % 1 !== 0) return false; // Si p no es entero, no es de Mersenne
-        // Verificamos si p es primo
-        return this.esPrimo(p); // Usamos la función de primo existente
+        function esPrimo(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        let p = Math.log2(this.Num + 1);
+        if (Number.isInteger(p) && esPrimo(p)) {
+            return `${this.Num} es un número de Mersenne porque 2^${p} - 1 = ${this.Num}`;
+        }
+        return `${this.Num} no es un número de Mersenne`;
     }
 }
 
-// Las funciones = button HTML
-var ClaseEntero = new Entero(0); //Se inicializo en 0
 
-//crear el objeto 
+//Las funciones = button HTML
+var ClaseEntero = new Entero(0); //se inicializó en 0
+
+//Crear objeto
 function cargarNum() {
     ClaseEntero.setNum();
 }
 
-//mostrar el valor de num en html
-function mostrarNum(){
+function mostrarNum() {
     ClaseEntero.showNum();
 }
 
-function incrementarValor(){
+//Incrementar el valor de Num
+function incrementarValor() {
     ClaseEntero.incrementarNum();
     ClaseEntero.showNum();
 }
 
-function decrementarValor(){
+//Decrementar el valor de Num
+function decrementarValor() {
     ClaseEntero.decrementarNum();
     ClaseEntero.showNum();
 }
 
-function esParImparNum(){
+//Verifica si es par o impar
+function esParImparNum() {
     var respuesta = ClaseEntero.esParImpar();
     var resp = respuesta ? "Es Num Par":"Es Num Impar";
-    ClaseEntero.showResultado(resp)
+    ClaseEntero.showResultado(resp);
 }
 
-function esPosiNegaNum(){
-    var respuesta = ClaseEntero.esPosiNega();
+//Verificar es positivo o negativo
+function esPositivoNegativoNum() {
+    var respuesta = ClaseEntero.esPositivoNegativo();
     var resp = respuesta ? "Es Num Positivo":"Es Num Negativo";
-    ClaseEntero.showResultado(resp)
+    ClaseEntero.showResultado(resp);
 }
 
-function factorialNum(){
+// Calcular factorial
+function calcularFactorial() {
     var respuesta = ClaseEntero.factorial();
-    ClaseEntero.showResultado("Factorial:" + respuesta)
+    ClaseEntero.showResultado(respuesta);
 }
 
-function esPerfectoNum(){
+// Verificar si es un número perfecto
+function verificarPerfecto() {
     var respuesta = ClaseEntero.esPerfecto();
-    var resp = respuesta ? "Es Num perfecto":"No es Num perfecto"
-    ClaseEntero.showResultado(resp)
+    ClaseEntero.showResultado(respuesta);
 }
 
-function esPrimoNum(){
-    var respuesta = ClaseEntero.esPrimo();
-    var resp = respuesta ? "Es Num Primo" : "No es Num Primo";
-    ClaseEntero.showResultado(resp);
-}
-
-function FibonucciNum(){
-    var respuesta = ClaseEntero.Fibonucci();
-    ClaseEntero.showResultado("Fibonacci: " + respuesta.join(", "));
-}
-
-function esArmstrongNum(){
+// Función para verificar si el número es un número de Armstrong
+function verificarArmstrong() {
     var respuesta = ClaseEntero.esArmstrong();
-    var resp = respuesta ? "Es Num Armstrong" : "No es Num Armstrong";
-    ClaseEntero.showResultado(resp);
+    ClaseEntero.showResultado(respuesta);
 }
 
-function esPerfectoGeneralizadoNum(){
-    const k = parseInt(document.getElementById('kInput').value, 10);
-    var respuesta = ClaseEntero.esPerfectoGeneralizado(k);
-    var resp = respuesta ? `Es Num perfecto generalizado con k=${k}` : `No es Num perfecto generalizado con k=${k}`;
-    ClaseEntero.showResultado(resp);
+// Función para verificar si el número es un número perfecto generalizado con un exponente k
+function verificarPerfectoGeneralizado() {
+    var exponente = prompt("Ingrese el valor de k:");
+    var respuesta = ClaseEntero.esPerfectoGeneralizado(parseInt(exponente));
+    ClaseEntero.showResultado(respuesta);
 }
 
-function calcularFilaPascalNum() {
+// Función para calcular la fila del triángulo de Pascal
+function calcularFilaTrianguloPascal() {
     var respuesta = ClaseEntero.calcularFilaPascal();
-    ClaseEntero.showResultado("Fila de Pascal: " + respuesta.join(", "));
+    ClaseEntero.showResultado(respuesta);
 }
 
-function cifrarCesarNum() {
-    var desplazamiento = parseInt(prompt("Ingresa el valor del desplazamiento:"));
-    var respuesta = ClaseEntero.cifrarCesar(desplazamiento);
-    ClaseEntero.showResultado("Cifrado César: " + respuesta);
+// Función para cifrar el número con el cifrado César
+function cifrarNumeroCesar() {
+    var desplazamiento = prompt("Ingrese el desplazamiento para el cifrado César:");
+    var respuesta = ClaseEntero.cifrarCesar(parseInt(desplazamiento));
+    ClaseEntero.showResultado(respuesta);
 }
 
-function tienePrimoGemeloNum() {
+// Función para verificar si el número tiene un primo gemelo
+function verificarPrimoGemelo() {
     var respuesta = ClaseEntero.tienePrimoGemelo();
-    var resp = respuesta ? "Tiene un primo gemelo" : "No tiene primo gemelo";
-    ClaseEntero.showResultado(resp);
+    ClaseEntero.showResultado(respuesta);
 }
 
-function descomponerEnFactoresPrimosNum() {
+// Función para descomponer el número en factores primos
+function descomponerFactoresPrimos() {
     var respuesta = ClaseEntero.descomponerEnFactoresPrimos();
-    var resultadoFormateado = respuesta.map(f => f[0] + "^" + f[1]).join(", ");
-    ClaseEntero.showResultado("Factores primos: " + resultadoFormateado);
+    ClaseEntero.showResultado(respuesta);
 }
 
-function calcularCatalanNum() {
+// Función para calcular el número de Catalan
+function calcularNumeroCatalan() {
     var respuesta = ClaseEntero.calcularCatalan();
-    ClaseEntero.showResultado("Número de Catalan: " + respuesta);
+    ClaseEntero.showResultado(respuesta);
 }
 
-function esMersenneNum() {
+// Función para verificar si el número es un número de Mersenne
+function verificarNumeroMersenne() {
     var respuesta = ClaseEntero.esMersenne();
-    var resp = respuesta ? "Es un número de Mersenne" : "No es un número de Mersenne";
-    ClaseEntero.showResultado(resp);
+    ClaseEntero.showResultado(respuesta);
 }
