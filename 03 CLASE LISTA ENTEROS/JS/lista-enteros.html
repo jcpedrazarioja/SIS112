@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Enteros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+        li {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Lista de Enteros</h1>
+    <input type="number" id="valor" placeholder="Ingrese un número entero">
+    <button id="agregarBtn">Agregar</button>
+    <h2>Lista:</h2>
+    <ul id="lista"></ul>
+</div>
+
+<script src="lista-enteros.js"></script>
+
+<script>
+
+
+    const listaEnteros = new ListaEnteros();
+
+    document.getElementById('agregarBtn').addEventListener('click', () => {
+        const valorInput = document.getElementById('valor');
+        const valor = parseInt(valorInput.value);
+        if (!isNaN(valor)) {
+            listaEnteros.agregar(valor);
+            valorInput.value = '';
+        } else {
+            alert('Por favor, ingrese un número válido.');
+        }
+    });
+</script>
+
+</body>
+</html>
