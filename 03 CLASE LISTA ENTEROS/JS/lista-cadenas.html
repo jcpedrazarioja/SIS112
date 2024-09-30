@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cadenas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Evita el scroll */
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* Asegura que esté detrás del contenido */
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            position: relative; /* Para posicionar el contenido sobre el video */
+            z-index: 1; /* Asegura que el contenido esté encima */
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            margin: 10px 0;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            background: linear-gradient(45deg, #ff6b6b, #f7f00b);
+            color: white;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .lista {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .lista li {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted class="video-background">
+        <source src="https://i.gifer.com/BKuP.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
+
+    <div class="container">
+        <h1>Lista de Cadenas</h1>
+        <input type="text" id="inputValor" placeholder="Agregar cadena...">
+        <button onclick="agregarValor()">Agregar</button>
+        <button onclick="eliminarValor()">Eliminar</button>
+        <button onclick="ordenarLista()">Ordenar</button>
+        <ul class="lista" id="listaCadenas"></ul>
+    </div>
+
+    <script>
+        class ListaCadenas {
+            constructor() {
+                this.lista = [];
+            }
+
+            agregar(valor) {
+                this.lista.push(valor);
+                this.renderizar();
+            }
+
+            eliminar(valor) {
+                const index = this.lista.indexOf(valor);
+                if (index !== -1) {
+                    this.lista.splice(index, 1);
+                    this.renderizar();
+                }
+            }
+
+            buscar(valor) {
+                return this.lista.indexOf(valor);
+            }
+
+            ordenar() {
+                this.lista.sort();
+                this.renderizar();
+            }
+
+            renderizar() {
+                const listaElement = document.getElementById('listaCadenas');
+                listaElement.innerHTML = '';
+                this.lista.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    listaElement.appendChild(li);
+                });
+            }
+        }
+
+        const miLista = new ListaCadenas();
+
+        function agregarValor() {
+            const input = document.getElementById('inputValor');
+            if (input.value) {
+                miLista.agregar(input.value);
+                input.value = '';
+            }
+        }
+
+        function eliminarValor() {
+            const input = document.getElementById('inputValor');
+            miLista.eliminar(input.value);
+            input.value = '';
+        }
+
+        function ordenarLista() {
+            miLista.ordenar();
+        }
+    </script>
+</body>
+</html>
