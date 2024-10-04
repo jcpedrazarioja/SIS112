@@ -23,6 +23,7 @@ class ListaEnteros {
     }
 }
 
+/*
 const listaEnteros = new ListaEnteros();
 listaEnteros.agregar(21);
 listaEnteros.agregar(12);
@@ -42,7 +43,59 @@ console.log(c);
 var d = listaEnteros.lista[3];
 console.log(d);
 
+var datoMenor = -1;
 
+//----------------------------------------------------------------------------
+var a = listaEnteros.lista[0];
+if(a > datoMenor){
+    datoMenor = a;
+}
+console.log("Dato Menor: " + datoMenor);
+//-----------------------------------------------------------------
+var b = listaEnteros.lista[1];
+if(a > b){
+    datoMenor = b;
+}
+console.log("Dato Menor: " + datoMenor);
+//----------------------------------------------------------------
+var c = listaEnteros.lista[2];
+if(b > c){
+    datoMenor = c;
+}
+console.log("Dato Menor: " + datoMenor);
+//---------------------------------------------------------------
+var d = listaEnteros.lista[3];
+if(c > d){
+    datoMenor = d;
+}
+console.log("Dato Menor: " + datoMenor);
+*/ 
+
+const listaEnteros = new ListaEnteros();
+listaEnteros.agregar(21);
+listaEnteros.agregar(12);
+listaEnteros.agregar(15);
+listaEnteros.agregar(30);
+console.log(listaEnteros.lista);
+
+// Inicializa datoMenor con el primer elemento de la lista
+var datoMenor = listaEnteros.lista[0];
+
+for (var i = 1; i < listaEnteros.lista.length; i++) {
+    if (listaEnteros.lista[i] < datoMenor) {
+        datoMenor = listaEnteros.lista[i];
+    }
+}
+
+console.log("Dato Menor: " + datoMenor);
+var datoMayor = listaEnteros.lista[0];
+for (var i = 1; i < listaEnteros.lista.length; i++) {
+    if (listaEnteros.lista[i] > datoMayor) {
+        datoMayor = listaEnteros.lista[i];
+    }
+}
+
+console.log("Dato Mayor: " + datoMayor);
 function actualizarResultado() {
     document.getElementById('result').innerHTML = `Resultado: [ ${miLista.lista.join(', ')} ]`;
 }
