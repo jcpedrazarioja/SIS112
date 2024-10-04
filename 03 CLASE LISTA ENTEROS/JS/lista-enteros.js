@@ -23,7 +23,25 @@ class ListaEnteros {
     }
 }
 
-let miLista = new ListaEnteros();
+const listaEnteros = new ListaEnteros();
+listaEnteros.agregar(21);
+listaEnteros.agregar(12);
+listaEnteros.agregar(15);
+listaEnteros.agregar(30);
+console.log(listaEnteros.lista);
+
+var a = listaEnteros.lista[0];
+console.log(a);
+
+var b = listaEnteros.lista[1];
+console.log(b);
+
+var c = listaEnteros.lista[2];
+console.log(c);
+
+var d = listaEnteros.lista[3];
+console.log(d);
+
 
 function actualizarResultado() {
     document.getElementById('result').innerHTML = `Resultado: [ ${miLista.lista.join(', ')} ]`;

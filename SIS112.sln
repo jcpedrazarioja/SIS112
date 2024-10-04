@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "INTRODUCCION", "INTRODUCCION", "{A645DED5-651A-40F5-860E-DF85B0BC23B4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mi primer programa en C#", "INTRODUCCION\mi primer programa en C#\mi primer programa en C#.csproj", "{EB186748-9999-4310-A049-11CCC1E1DDF5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB186748-9999-4310-A049-11CCC1E1DDF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB186748-9999-4310-A049-11CCC1E1DDF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB186748-9999-4310-A049-11CCC1E1DDF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB186748-9999-4310-A049-11CCC1E1DDF5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB186748-9999-4310-A049-11CCC1E1DDF5} = {A645DED5-651A-40F5-860E-DF85B0BC23B4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {462FC975-55E6-4FF9-938D-325971913EC9}
+	EndGlobalSection
+EndGlobal
