@@ -107,64 +107,10 @@
         <ul class="lista" id="listaCadenas"></ul>
     </div>
 
-    <script>
-        class ListaCadenas {
-            constructor() {
-                this.lista = [];
-            }
+    
+    <script defer src="lista-cadenas.js"></script>
 
-            agregar(valor) {
-                this.lista.push(valor);
-                this.renderizar();
-            }
 
-            eliminar(valor) {
-                const index = this.lista.indexOf(valor);
-                if (index !== -1) {
-                    this.lista.splice(index, 1);
-                    this.renderizar();
-                }
-            }
 
-            buscar(valor) {
-                return this.lista.indexOf(valor);
-            }
-
-            ordenar() {
-                this.lista.sort();
-                this.renderizar();
-            }
-
-            renderizar() {
-                const listaElement = document.getElementById('listaCadenas');
-                listaElement.innerHTML = '';
-                this.lista.forEach(item => {
-                    const li = document.createElement('li');
-                    li.textContent = item;
-                    listaElement.appendChild(li);
-                });
-            }
-        }
-
-        const miLista = new ListaCadenas();
-
-        function agregarValor() {
-            const input = document.getElementById('inputValor');
-            if (input.value) {
-                miLista.agregar(input.value);
-                input.value = '';
-            }
-        }
-
-        function eliminarValor() {
-            const input = document.getElementById('inputValor');
-            miLista.eliminar(input.value);
-            input.value = '';
-        }
-
-        function ordenarLista() {
-            miLista.ordenar();
-        }
-    </script>
 </body>
 </html>
