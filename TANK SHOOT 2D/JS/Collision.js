@@ -1,5 +1,6 @@
-class Collision{
-    posX;
+//Creamos la clase Collision
+class Collision{ //creamos la clase con class
+    posX; //
     posY;
     duracion;
 
