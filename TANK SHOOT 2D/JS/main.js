@@ -22,7 +22,6 @@ const playerTank = new Tank(100, 100, 'up', 3);
 const enemyTank = new EnemyTank(500, 100, 'down', 3);
 
 
-
 // Dibujamos los elementos en el canvas
 function drawTank(tank) {
     ctx.fillStyle = 'green';
@@ -36,6 +35,37 @@ function drawEnemyTank(enemyTank) {
     ctx.fillRect(enemyTank.posX, enemyTank.posY, 50, 50);
 }
 
+//Controles basicos para mover el tanque del jugador
+window.addEventListener('keydown', function (e) {
+    switch(e.key) {
+        //las teclas de las Flechas del teclado
+        case 'ArrowLeft' :
+            playerTank.moveLeft();
+            break;
+        case 'ArrowRight' :
+            playerTank.moveRight();
+            break;
+        case 'ArrowUp' :
+            playerTank.moveUp();
+            break;
+        case 'ArrowDown' :
+            playerTank.moveDown();
+            break;
+        //las teclas de las letras del teclado
+        case 'a':
+            playerTank.moveLeft();
+            break
+        case 'd' :
+            playerTank.moveRight();
+            break
+        case 'w' :
+            playerTank.moveUp();
+            break
+        case 's' :
+            playerTank.moveDown();
+            break;
+    }
+})
 //Logica del juego (actualizacion de pantalla)
 function updateGame() {
     //Limpiamos el canvas en cada frame
