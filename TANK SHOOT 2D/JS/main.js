@@ -100,21 +100,21 @@ setInterval(() => {
 }, 100);
 
 const escenario = [
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1]
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
 
 function drawEscenario(ctx, escenario) {
@@ -142,13 +142,90 @@ function drawEscenario(ctx, escenario) {
         }
     }
 }
+
+const mapa = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1], 
+    [1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1], 
+    [1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 
+    [1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0], 
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+const mapa2 = [
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1],
+    [1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1], 
+    [1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1], 
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+];
+
+function DibujarCero(ctx, x, y, x1, y1){
+    ctx.fillStyle = "brown";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarUno(ctx, x, y, x1, y1){
+    ctx.fillStyle = "black";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarDos(ctx, x, y, x1, y1){
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(x, y, x1, y1);
+}
+
+function DibujarMapa(ctx, mapa){
+    for (let row = 0; row < mapa.length; row++) {
+        for (let col = 0; col < mapa[row].length; col++){
+            const cell = mapa[row][col];
+            console.log(cell);
+            const x = col * game.anchoCelda;
+            const y = row * game.altoCelda;
+            switch (cell) {
+                case 0:
+                    DibujarCero(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;
+                case 1:
+                    DibujarUno(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;
+                case 2:
+                    DibujarDos(ctx, x, y, game.anchoCelda, game.altoCelda);
+                    break;
+            default:
+                break;
+
+            }
+        }
+    }
+}
 //Logica del juego (actualizacion de pantalla)
 function updateGame() {
     //Limpiamos el canvas en cada frame
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    drawEscenario(ctx, escenario); //Dibujamos el escenario 
+    //drawEscenario(ctx, escenario); //Dibujamos el escenario 
     //drawTank(playerTank)
+    DibujarMapa(ctx, mapa);
     playerTank.drawTank(ctx);
     enemyTank1.drawEnemyTank(ctx);
     enemyTank2.drawEnemyTank(ctx);
