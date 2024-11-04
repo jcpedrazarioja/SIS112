@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaga 2D Clone</title>
+    <style>
+        /* Basic Style */
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: black;
+            color: #00ffea;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Game container */
+        .game-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+        }
+
+        /* Animated starry background */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 2%), radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 2%);
+            background-size: 5px 5px;
+            animation: moveBackground 10s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100%); }
+        }
+
+        /* Welcome screen style */
+        .welcome-text {
+            font-size: 3rem;
+            color: #ff6600;
+            margin-top: 20px;
+            text-align: center;
+            letter-spacing: 0.1rem;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        /* Start button */
+        .game-button {
+            padding: 1rem 2rem;
+            margin-top: 20px;
+            background-color: #ff6600;
+            border: 2px solid #ffffff;
+            font-size: 1.5rem;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .game-button:hover {
+            background-color: #ff3300;
+            color: black;
+        }
+
+        /* Player spaceship */
+        .player {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #00ffea;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        /* Enemy style */
+        .enemy, .enemy2 {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+        }
+
+        .enemy {
+            background-image: url('enemy.png');
+            background-size: cover;
+            animation: moveEnemy 5s linear infinite;
+        }
+
+        .enemy2 {
+            background-image: url('enemy2.png');
+            background-size: cover;
+            animation: moveEnemy2 6s linear infinite;
+        }
+
+        /* Enemy animations */
+        @keyframes moveEnemy {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes moveEnemy2 {
+            0% { transform: translateY(-20%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Centered Galaga logo */
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; /* Increased size */
+        }
+
+        /* Animated meteor */
+        .meteor {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('meteor.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: fallMeteor 8s linear infinite;
+            opacity: 0.8;
+        }
+
+        /* Falling meteor animation */
+        @keyframes fallMeteor {
+            0% { top: -10%; left: 90%; transform: rotate(0deg) scale(1); }
+            100% { top: 110%; left: -10%; transform: rotate(720deg) scale(0.7); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="welcome-text">BIENVENIDO A GALAGA</h1>
+    <a href="galaga.html" class="game-button">Start Game</a>
+
+    <div class="game-container">
+        <div class="background"></div>
+        <img src="galaga-logo.png" class="logo" alt="Galaga Logo"> <!-- Centered Galaga logo -->
+        <div id="player" class="player"></div>
+        <!-- Initial animation enemies -->
+        <div class="enemy" style="left: 20%; top: 0;"></div>
+        <div class="enemy" style="left: 60%; top: -100px;"></div>
+        <div class="enemy2" style="left: 40%; top: -300px;"></div>
+        <div class="enemy2" style="left: 80%; top: -500px;"></div>
+
+        <!-- Meteor animation -->
+        <div class="meteor"></div> <!-- Falling meteor background animation -->
+    </div>
+
+    <script>
+        const player = document.getElementById("player");
+        const gameContainer = document.querySelector(".game-container");
+
+        // Player movement
+        window.addEventListener("keydown", (e) => {
+            const playerRect = player.getBoundingClientRect();
+            const containerRect = gameContainer.getBoundingClientRect();
+
+            if (e.key === "ArrowLeft" && playerRect.left > containerRect.left) {
+                player.style.left = `${player.offsetLeft - 20}px`;
+            }
+            if (e.key === "ArrowRight" && playerRect.right < containerRect.right) {
+                player.style.left = `${player.offsetLeft + 20}px`;
+            }
+        });
+    </script>
+</body>
+</html>
