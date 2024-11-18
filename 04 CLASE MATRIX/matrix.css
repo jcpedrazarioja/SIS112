@@ -3,61 +3,109 @@ html, body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
 
 /* Estilo del cuerpo y fondo */
 body {
-    background-color: #20232a;
-    color: white;
+    background: linear-gradient(135deg, #1e1f29, #2b2d42);
+    color: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    position: relative;
+}
+
+/* Adding GIF as a background */
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('giphy.webp'); /* Path to your GIF */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; /* Adjust opacity for better visibility of content */
+    z-index: -1;
 }
 
 /* Contenedor principal */
 .main-container {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espacio entre el canvas y los botones */
+    gap: 30px; /* Espacio entre el canvas y los botones */
+    animation: fadeIn 1s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación para entrada suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Estilos para el contenedor de botones */
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espacio entre cada botón */
+    gap: 15px; /* Espacio entre cada botón */
 }
 
 /* Estilos para los botones */
 button {
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #20232a;
-    background-color: #61dafb;
-    border: none;
-    border-radius: 5px;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #a8ffbd; /* Light green text */
+    background: rgba(255, 82, 82, 0.2); /* Semi-transparent red background */
+    border: 2px solid rgba(168, 255, 189, 0.5); /* Light green border */
+    border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #21a1f1;
-    transform: scale(1.05);
+    background: rgba(255, 82, 82, 0.3); /* Slightly darker red on hover */
+    color: #e0ffe6; /* Lighter green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3), 0px 0px 15px rgba(168, 255, 189, 0.6);
 }
 
 button:active {
-    background-color: #1a85c2;
+    background: rgba(255, 82, 82, 0.4); /* Darker red when clicked */
+    transform: translateY(2px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3), 0px 0px 10px rgba(168, 255, 189, 0.6);
 }
 
 /* Estilo del canvas */
 canvas {
-    border: 3px solid #61dafb;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    max-width: 90vw;
-    max-height: 90vh;
+    border: 4px solid #61dafb;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(97, 218, 251, 0.5), 0px 4px 20px rgba(0, 0, 0, 0.7);
+    background: rgba(255, 255, 255, 0.03);
+    max-width: 80vw;
+    max-height: 80vh;
+    animation: glow 2s infinite alternate;
+}
+
+/* Efecto de brillo en el canvas */
+@keyframes glow {
+    from {
+        box-shadow: 0px 4px 15px rgba(97, 218, 251, 0.5), 0px 4px 20px rgba(0, 0, 0, 0.7);
+    }
+    to {
+        box-shadow: 0px 6px 20px rgba(97, 218, 251, 0.8), 0px 6px 25px rgba(0, 0, 0, 0.8);
+    }
 }
