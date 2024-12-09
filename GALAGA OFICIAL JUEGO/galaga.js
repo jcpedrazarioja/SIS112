@@ -18,7 +18,7 @@ var playArea, starField, playerScore, fighter;
 // specific holders
 var GAME_OBJECTS = [];
 var SOUNDS = [];
-var timeLeft = 60;
+var timeLeft = 120;
 var timerInterval;
 
 
