@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALAGA</title>
+    <link rel="stylesheet" type="text/css" href="galaga.css" />
+    <link rel="stylesheet" type="text/css" href="galagaPage.css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="galaga.js"></script>
+</head>
+<body>
+    <div id="title">
+        <div id="head">JUEGO <span>GALAGA</span></div>
+        <div id="sub">HECHO POR <span>TERESA ARTEAGA Y JULIO PEDRAZA</span></div>
+        <div id="version"><span>USANDO LO APRENDIDO</span> - EN PROGRAMACION I</div>
+    </div>
+    <galaga>
+        <header>
+            <div id="highscore-title" class="center">High Score</div>
+            <highscore class="center">20000</highscore>
+            <oneup>1up</oneup>
+            <playerscore class="left" data-points="0">0</playerscore>
+            <div id="timer-title" class="right">Time Left</div>
+            <div id="timer" class="right"></div>
+        </header>
+        <playarea>
+            <starfield></starfield>
+            <message>Loading Files</message>
+        </playarea>
+        <footer></footer>
+        <div class="audio">
+            <audio id="theme" preload="auto">
+                <source src="sounds/theme.mp3" type="audio/mp3">
+            </audio>
+            <audio id="start" preload="auto">
+                <source src="sounds/start.mp3" type="audio/mp3">
+            </audio>
+            <audio id="firing" preload="auto">
+                <source src="sounds/firing.mp3" type="audio/mp3">
+            </audio>
+            <audio id="coin" preload="auto">
+                <source src="sounds/coin.mp3" type="audio/mp3">
+            </audio>
+            <audio id="kill" preload="auto">
+                <source src="sounds/kill.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </galaga>
+</body>
+</html>
