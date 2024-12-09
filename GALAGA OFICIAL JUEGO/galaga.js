@@ -176,7 +176,7 @@ function endGame(victory) {
         $("message").text("Congratulations! You won the game 🎉");
         $("message").show();
     } else {
-        $("message").text("Game Over 💀");
+        $("message").text("Game Over ");
         $("message").show();
     }
     clearInterval(animate);
